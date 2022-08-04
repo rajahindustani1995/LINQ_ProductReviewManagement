@@ -67,5 +67,16 @@ namespace ProductReviewManagement
                 Console.WriteLine("ProductId:{0} Count: {1}", product.ProductID, product.ncount);
             }
         }
+
+        //UC-5
+        public static void RetrieveProductIDAndhReview(List<ProductReview> list)
+        {
+            Console.WriteLine("Only Retrieving ProductID and Review");
+            var result = list.Select(product => new { ProductID = product.ProductID, Review = product.Review }).ToList();
+            foreach (var item in result)
+            {
+                Console.WriteLine("ProductID: " + item.ProductID + " Review: " + item.Review);
+            }
+        }
     }
 }
