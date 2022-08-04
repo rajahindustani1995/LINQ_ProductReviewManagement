@@ -39,5 +39,13 @@ namespace ProductReviewManagement
                 Console.WriteLine(item);
             }
         }
+
+        public static void RetrieveTop3Reviews(List<ProductReview> list)
+        {
+            Console.WriteLine("Retrieving Top 3 products based on rating");
+            var sortedProduct = from product in list orderby product.Rating descending select product;
+            var top3 = sortedProduct.Take(3).ToList();
+            DisplayeProductsReview(top3);
+        }
     }
 }
