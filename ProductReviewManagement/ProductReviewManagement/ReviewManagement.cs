@@ -40,12 +40,21 @@ namespace ProductReviewManagement
             }
         }
 
+        //UC-2
         public static void RetrieveTop3Reviews(List<ProductReview> list)
         {
             Console.WriteLine("Retrieving Top 3 products based on rating");
             var sortedProduct = from product in list orderby product.Rating descending select product;
             var top3 = sortedProduct.Take(3).ToList();
             DisplayeProductsReview(top3);
+        }
+
+        //UC-3
+        public static void RatingGreaterThan3(List<ProductReview> list)
+        {
+            Console.WriteLine("Retrieving products based on rating greater than 3 and having ProductID as 1/4/9");
+            var res1 = list.Where(p => p.Rating > 3 && (p.ProductID == 1 || p.ProductID == 4 || p.ProductID == 9)).ToList();
+            DisplayeProductsReview(res1);
         }
     }
 }
