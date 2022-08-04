@@ -10,7 +10,8 @@
             Console.WriteLine("2:Retrieve Top3 Reviews from the list");
             Console.WriteLine("3:Rating Greater than 3 and having ProductID as 1/4/9");
             Console.WriteLine("4:Retrieve count of review present for each productID");
-            Console.WriteLine("5:Retrieve Only ProductID and Review");
+            Console.WriteLine("5:Retrieve only ProductID and Review");
+            Console.WriteLine("6:Skip Top 5 Records and Display other Records");
             Console.WriteLine("Choose Option or press 0 for exit");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
@@ -29,6 +30,9 @@
                     break;
                 case 5:
                     ReviewManagement.RetrieveProductIDAndhReview(list);
+                    break;
+                case 6:
+                    ReviewManagement.SkipTop5DataAndDisplayRemaining(list);
                     break;
                 case 0:
                     Environment.Exit(0);

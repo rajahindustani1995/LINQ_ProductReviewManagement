@@ -78,5 +78,13 @@ namespace ProductReviewManagement
                 Console.WriteLine("ProductID: " + item.ProductID + " Review: " + item.Review);
             }
         }
+
+        //UC-6
+        public static void SkipTop5DataAndDisplayRemaining(List<ProductReview> list)
+        {
+            Console.WriteLine("After Skipping the Top 5 Records Remaing Records are :");
+            List<ProductReview> SkipRecords = list.Skip(5).ToList();
+            DisplayeProductsReview(SkipRecords);
+        }
     }
 }
