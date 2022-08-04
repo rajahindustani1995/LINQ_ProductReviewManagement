@@ -86,5 +86,16 @@ namespace ProductReviewManagement
             List<ProductReview> SkipRecords = list.Skip(5).ToList();
             DisplayeProductsReview(SkipRecords);
         }
+
+        //UC-7
+        public static void RetrieveProductIDAndRating(List<ProductReview> list)
+        {
+            Console.WriteLine("Only Retrieving ProductID and Rating");
+            var result = list.Select(product => new { ProductID = product.ProductID, Rating = product.Rating }).ToList();
+            foreach (var item in result)
+            {
+                Console.WriteLine("ProductID: " + item.ProductID + " Rating: " + item.Rating);
+            }
+        }
     }
 }
