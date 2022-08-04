@@ -56,5 +56,16 @@ namespace ProductReviewManagement
             var res1 = list.Where(p => p.Rating > 3 && (p.ProductID == 1 || p.ProductID == 4 || p.ProductID == 9)).ToList();
             DisplayeProductsReview(res1);
         }
+
+        //UC-4
+        public static void CountEachProductID(List<ProductReview> list)
+        {
+            Console.WriteLine("Retriving the Count of the productiD");
+            var CountOfProductId = (list.GroupBy(p => p.ProductID).Select(product => new { ProductID = product.Key, ncount = product.Count() })).ToList();
+            foreach (var product in CountOfProductId)
+            {
+                Console.WriteLine("ProductId:{0} Count: {1}", product.ProductID, product.ncount);
+            }
+        }
     }
 }
